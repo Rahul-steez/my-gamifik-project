@@ -3,10 +3,11 @@
 header("Content-Type: text/html;charset=utf-8");
 
 //Parámetros que vienen del POST
-		$nick=$_POST["n"];
+
+		$nick=$_POST["u"];
 		$email=$_POST["e"];
 		$Password=$_POST["p"];
-		$Username=$_POST["u"];
+		$Username=$_POST["n"];
 		$apellido=$_POST["a"];
 		$centro=$_POST["c"];
 
@@ -29,7 +30,7 @@ else
 	$_SESSION["con"]=$con;
 }
 
-$consulta=mysqli_query($con,"insert into paginaphp values ('$nick','$email','$Password','$Username','$apellido','$centro')");
+$consulta=mysqli_query($con,"insert into alumnos values (null,'$nick','$email','$Password','$Username','$apellido','$centro')");
 
 if(!$consulta)
 {

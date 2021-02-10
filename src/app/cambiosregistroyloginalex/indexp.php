@@ -5,8 +5,8 @@ header("Content-Type: text/html;charset=utf-8");
 //Parámetros de conexión
 $servidor="localhost";
 $usuario="root";
-$contraseña="usbw";
-$bd="test";
+$contraseña="";
+$bd="gamifik";
 
 //realizamos la conexión
 $con=mysqli_connect($servidor,$usuario,$contraseña,$bd);

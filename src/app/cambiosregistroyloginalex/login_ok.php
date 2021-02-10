@@ -6,7 +6,7 @@ $logueado=0;
 	
 header("Content-Type: text/html;charset=utf-8");
 
-		$nick=$_POST["n"];
+		$nick=$_POST["u"];
 		$Password=$_POST["p"];
 		
 		$servidor="localhost";
@@ -26,7 +26,7 @@ header("Content-Type: text/html;charset=utf-8");
 		echo "Se ha conectado a la base de datos" . "<br>";
 	}
 	
-	$instruccion = "select count(*) as cuantos from paginaphp where nick = '$nick'";
+	$instruccion = "select count(*) as cuantos from alumnos where Nick = '$nick'";
 	$resultado = mysqli_query($con, $instruccion);
 		while ($fila = $resultado->fetch_assoc()) {
 		$numero=$fila["cuantos"];
@@ -35,7 +35,7 @@ header("Content-Type: text/html;charset=utf-8");
 		echo "El usuario no existe";
 	}
 	else{
-	$instruccion = "select password as cuantos from paginaphp where nick = '$nick'";
+	$instruccion = "select Contraseña as cuantos from alumnos where Nick = '$nick'";
 	$resultado = mysqli_query($con, $instruccion);
 
 	while ($fila = $resultado->fetch_assoc()) {
