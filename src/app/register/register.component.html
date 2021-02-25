@@ -1,58 +1,46 @@
-<!-- register.component.html -->
 
-<div class="register">
-    <form class="custom-form" method="post">
-      <h1>Register</h1>
-      <input
-        type="nick"
-        [(ngModel)]="nick"
-        name="nick"
-        placeholder="Nick"
-        required="required"
-      />
-      <input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
-        required="required"
-      />
-      <input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      <input
-        type="password"
-        [(ngModel)]="confirmPassword"
-        name="password"
-        placeholder="Repeat the password"
-        required="required"
-      />
-      />
-      <input
-        type="nombre"
-        [(ngModel)]="nombre"
-        name="nombre"
-        placeholder="Nombre"
-        required="required"
-      />
-      <input
-        type="apellido"
-        [(ngModel)]="apellido"
-        name="apellido"
-        placeholder="Apellido"
-        required="required"
-      />
-      <input
-        type="centro"
-        [(ngModel)]="centro"
-        name="centro"
-        placeholder="Centro"
-        required="required"
-      />
-      <button type="submit" (click)="ComprobarUsuario(nick)">Register</button>
-    </form>
-  </div>
+  <body>
+	<div class="login">
+		<div class="login-screen">
+			<div class="app-title">
+				<h1>Register</h1>
+			</div>
+
+			<div class="login-form">
+				<div class="control-group">
+				<input type="text" class="login-field" value="" placeholder="Nick" id="login-name" ([ngModel])="register.Nick" >
+				<label class="login-field-icon fui-user" for="login-name"></label>
+				</div>
+
+				<div class="control-group">
+				<input type="password" class="login-field" value="" placeholder="Password" id="login-pass" ([ngModel])="register.Pass" >
+				<label class="login-field-icon fui-lock" for="login-pass"></label>
+				</div>
+
+                <div class="control-group">
+                    <input type="password" class="login-field" value="" placeholder="Confirmpassword" id="login-pass" ([ngModel])="register.Nombre">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input type="text" class="login-field" value="" placeholder="Nombre" id="login-pass" ([ngModel])="register.Apellido">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input type="text" class="login-field" value="" placeholder="Apellido" id="login-pass" ([ngModel])="register.Nick">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+
+                <div class="control-group">
+                    <input type="text" class="login-field" value="" placeholder="Centro" id="login-pass" ([ngModel])="register.Nick">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                </div>
+														
+				<a class="btn btn-primary btn-large btn-block" href="#" (click)="Register()">Register</a>
+				<a href="#">Login</a>
+				<a class="login-link" href="#">Lost your password?</a>
+			</div>
+		</div>
+	</div>
+</body>

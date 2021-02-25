@@ -1,24 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from "../userservice/api.service";
-
-
+import { FormsModule } from "@angular/forms";
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-    email: string;
-    password: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class LoginComponent {
+  title = 'my-gamifik-project';
+  login = {
+    Nick: null,
+    Pass: null
   }
 
-  login(){
-    console.log(this.email);
-    console.log(this.password);
+  constructor(private ApiService: ApiService) { }
+
+  loginUsuario() {
+    this.ApiService.Login(this.login).subscribe (
+      datos => {
+        if(datos['resultado'] == 'OK') {
+          alert(datos['mensaje']);
+        } else {
+          alert(datos['mensaje']);
+        }
+      }
+    );
   }
 }
