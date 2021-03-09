@@ -21,7 +21,7 @@
     "@angular/router": "~10.2.0",
     "bootstrap": "^4.6.0",
     "firebase": "^8.2.10",
-    "jquery": "^1.9.1",
+    "jquery": "^3.5.0",
     "node.js": "0.0.1-security",
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
