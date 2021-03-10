@@ -1,33 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
-import { ApiService } from "../userservice/api.service";
-import { LoginComponent } from '../login/login.component';
 import { FormsModule, FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { MustMatch } from "../MustMatch";
-import { RegisterprofComponent } from '../registerprof/registerprof.component';
+import { LoginComponent } from '../login/login.component';
+import { ApiService } from "../userservice/api.service";
+import { Router } from "@angular/router";
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registerprof',
+  templateUrl: './registerprof.component.html',
+  styleUrls: ['./registerprof.component.css']
 })
-export class RegisterComponent implements OnInit {
-  title = 'my-gamifik-project';
+export class RegisterprofComponent implements OnInit {
   registerForm: FormGroup;
   verpasswd: boolean = false;
   verpasswd1: boolean = false;
   submitted = false;
-  
+
   constructor(private ApiService: ApiService,private formBuilder: FormBuilder, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
       Nick: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],
       Pass: ['', Validators.required],
       Passconf: ['', Validators.required],
       Nombre: ['', Validators.required],
-      Apellidos: ['', Validators.required]
+      Apellidos: ['', Validators.required],
+      Centro: ['', Validators.required]
     } , {
       validator: MustMatch('Pass', 'Passconf')
     });
@@ -40,16 +40,12 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }else{
-      this.ApiService.Register(this.registerForm.value).subscribe (
+      this.ApiService.Registerprof(this.registerForm.value).subscribe (
         datos => {
             this.router.navigate(['/login']);
         }
       );
     }
-  }
-
-  tryregister() {
-    console.log(this.registerForm.value);
   }
 
   habilitarpasswd(): void {
@@ -73,5 +69,3 @@ export class RegisterComponent implements OnInit {
     }
   }
 }
-
-

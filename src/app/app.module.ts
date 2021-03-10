@@ -9,17 +9,25 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ApiService } from "./userservice/api.service";
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterprofComponent } from './registerprof/registerprof.component';
+import { HomeprofComponent } from './homeprof/homeprof.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    RegisterprofComponent,
+    HomeprofComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

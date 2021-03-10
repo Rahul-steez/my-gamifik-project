@@ -17,4 +17,7 @@ export class ApiService {
   Register(register) {
     return this.http.post(`${this.url}register.php`, JSON.stringify(register));
   }
+  Registerprof(register) {
+    return this.http.post(`${this.url}registerprofesor.php`, JSON.stringify(register));
+  }
 }
