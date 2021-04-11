@@ -1,19 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en">
 <nav class="navbar navbar-dark bg-dark">
 	<form class="container-fluid justify-content-start">
-	  <button  routerLink="/loginprof" routerLinkActive="active" class="btn btn-outline-success me-2" type="button">Login Profesor</button>
+	  <button  routerLink="/login" routerLinkActive="active" class="btn btn-outline-success me-2" type="button">Login Alumno</button>
 	  <a class="navbar-brand" href="#">GAMIFI-K</a>
-	  <button  routerLink="/register" routerLinkActive="active" class="btn btn-outline-success me-2" type="button">Register</button>
+	  <button  routerLink="/registerprof" routerLinkActive="active" class="btn btn-outline-success me-2" type="button">Register</button>
 	</form>
   </nav>
-  <body>
+ <body>
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-<<<<<<< Updated upstream
-				<h1>Login Prof</h1>
-=======
-				<h1>Login Alumno</h1>
->>>>>>> Stashed changes
+				<h1>Login Profesor</h1>
 			</div>
 
 			<div class="login-form">
@@ -26,17 +25,9 @@
 				<input type="password" class="login-field" value="" placeholder="password" id="login-pass" [(ngModel)]="login.Pass">
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
-
-<<<<<<< Updated upstream
-				<a class="btn btn-primary btn-large btn-block" href="#" (click)="loginUsuario()">login</a>
-				<a routerLink="/register" routerLinkActive="active">Register</a>
-				<a class="login-link" href="#">Lost your password?</a>
-				<a routerLink="/register" routerLinkActive="active">Profesor</a>
-=======
 				<a class="btn btn-primary btn-large btn-block" (click)="loginUsuario()">login</a>
->>>>>>> Stashed changes
 			</div>
 		</div>
 	</div>
 </body>
-
+</html>

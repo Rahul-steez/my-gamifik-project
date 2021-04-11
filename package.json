@@ -21,8 +21,14 @@
     "@angular/router": "~10.2.0",
     "bootstrap": "^4.6.0",
     "jquery": "^1.9.1",
+<<<<<<< Updated upstream
+=======
+    "ngx-cookie-service": "^11.0.2",
+    "node.js": "0.0.1-security",
+>>>>>>> Stashed changes
     "popper.js": "^1.16.1",
     "rxjs": "~6.6.0",
+    "sweetalert2": "^10.15.6",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },

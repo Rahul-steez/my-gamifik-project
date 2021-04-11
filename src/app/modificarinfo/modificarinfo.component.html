@@ -1,0 +1,70 @@
+<nav class="navbar navbar-dark bg-dark">
+    <form class="container-fluid justify-content-start">
+      <a class="navbar-brand" href="#">GAMIFI-K</a>
+      <button  routerLink="/login" routerLinkActive="active" class="btn btn-outline-success me-2" type="button">Log Out</button>
+    </form>
+  </nav>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h3>Modificar Perfil</h3>
+                <form [formGroup]="registerForm" (ngSubmit)="modificar()">
+                
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" formControlName="Email" maxlength="25" class="form-control" placeholder="{{ this.User[0].Email }}" [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" />
+                        <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                            <div *ngIf="f.Email.errors.required">Email is required</div>
+                            <div *ngIf="f.Email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contraseña Anterior</label>
+                        <input type="password" formControlName="PassAnt" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PassAnt.errors }" />
+                        <div *ngIf="submitted && f.PassAnt.errors" class="invalid-feedback">
+                            <div *ngIf="f.PassAnt.errors.required">Password is required</div>
+                        </div>
+                    </div>
+
+					<div class="form-group">
+                        <label>Nueva Contraseña</label>
+                        <input type="password" formControlName="Pass" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Pass.errors }" />
+                        <div *ngIf="submitted && f.Pass.errors" class="invalid-feedback">
+                            <div *ngIf="f.Pass.errors.required">Password is required</div>
+                        </div>
+                    </div>
+                  
+                    <div class="form-group">
+                        <label>Confirmar Contraseña Nueva</label>
+                        <input type="password" formControlName="Passconf" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Passconf.errors }" />
+                        <div *ngIf="submitted && f.Passconf.errors" class="invalid-feedback">
+                            <div *ngIf="f.Passconf.errors.required">Confirm Password is required</div>
+                            <div *ngIf="f.Passconf.errors.MustMatch">Passwords must match</div>
+                        </div>
+                    </div>
+
+					<div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" formControlName="Nombre" class="form-control" placeholder="{{ this.User[0].Nombre }}" [ngClass]="{ 'is-invalid': submitted && f.Nombre.errors }" />
+                        <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+                            <div *ngIf="f.Nombre.errors.required">Name is required</div>
+                        </div>
+                    </div>
+
+					<div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" formControlName="Apellidos" class="form-control" placeholder="{{ this.User[0].Apellidos }}" [ngClass]="{ 'is-invalid': submitted && f.Apellidos.errors }" />
+                        <div *ngIf="submitted && f.Apellidos.errors" class="invalid-feedback">
+                            <div *ngIf="f.Apellidos.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Modificar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

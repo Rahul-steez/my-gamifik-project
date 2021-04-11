@@ -1,4 +1,4 @@
-export class User {
+export class Profesor {
     constructor(
     public Id: number,
     public Nick : string,
@@ -6,5 +6,6 @@ export class User {
     public Email? : string,
     public Nombre? : string,
     public Apellidos? : string,
+    public Centro? : string,
     ){}
 }
