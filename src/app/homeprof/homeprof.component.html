@@ -1,16 +1,11 @@
+<nav class="navbar navbar-dark bg-dark">
+  <form class="container-fluid justify-content-start">
+    <a class="navbar-brand" href="#">GAMIFI-K</a>
+    <button class="btn btn-outline-success me-2" type="button" (click)="logout()">Log Out</button>
+  </form>
+</nav>
 <div class="container">
     <div class="main-body">
-    
-          <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Profesor Profile</li>
-            </ol>
-          </nav>
-          <!-- /Breadcrumb -->
-    
           <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
               <div class="card">
@@ -18,11 +13,12 @@
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
-                      <h4>John Doe</h4>
+                      <h4>{{ this.Profesor[0].Nick }}</h4>
                       <p class="text-secondary mb-1">Profesor</p>
                       <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                      <button class="btn btn-primary">Follow</button>
-                      <button class="btn btn-outline-primary">Message</button>
+                      <button routerLink="/modificarprofe" routerLinkActive="active" class="btn btn-outline-primary">Editar Perfil</button>
+                      <a class="navbar-brand"></a>
+                      <button routerLink="/ranking" routerLinkActive="active" class="btn btn-outline-primary">Crear Ranking</button>
                     </div>
                   </div>
                 </div>
@@ -57,10 +53,10 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Full Name</h6>
+                      <h6 class="mb-0">Nick</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Kenneth Valdez
+                      {{ this.Profesor[0].Nick }}
                     </div>
                   </div>
                   <hr>
@@ -69,42 +65,34 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      fip@jukmuh.al
+                      {{ this.Profesor[0].Email }}
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Phone</h6>
+                      <h6 class="mb-0">Nombre</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (239) 816-9029
+                      {{ this.Profesor[0].Nombre }}
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">Mobile</h6>
+                      <h6 class="mb-0">Apellidos</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      (320) 380-4539
+                      {{ this.Profesor[0].Apellidos }}
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Address</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      Bay Area, San Francisco, CA
-                    </div>
-                  </div>
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Centro</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      Ilerna
+                      {{ this.Profesor[0].Centro }}
                     </div>
                   </div>
                 </div>

@@ -16,13 +16,37 @@
   $Apellidos = mysqli_real_escape_string($conexion, trim($params ->Apellidos));
   $Centro = mysqli_real_escape_string($conexion, trim($params ->Centro));
 
+  $Pass_cifrado=password_hash($Pass, PASSWORD_DEFAULT);
+
+  $comprobar = mysqli_query($conexion, "SELECT * FROM profesores WHERE Nick='$Nick'");
+
+  class Result {}
+    
+  // GENERA LOS DATOS DE RESPUESTA
+  $response = new Result();
+  
+
+  if($comprobar->num_rows < 1) {
   // REALIZA LA QUERY A LA DB
-  $resultado = "INSERT INTO profesores(Nick,Email,Pass,Nombre,Apellidos,Centro) VALUES ('{$Nick}','{$Email}','{$Pass}','{$Nombre}','{$Apellidos}','{$Centro}')";
+  $resultado = "INSERT INTO profesores(Nick,Email,Pass,Nombre,Apellidos,Centro) VALUES ('{$Nick}','{$Email}','{$Pass_cifrado}','{$Nombre}','{$Apellidos}','{$Centro}')";
+
 
     if(mysqli_query($conexion, $resultado)) {
-       http_response_code(201);
+
+        $response->resultado = 'OKREG';
+        $response->mensaje = 'Fail';
     } else {
-        http_response_code(422);
+
+        $response->resultado = 'FAIL';
+        $response->mensaje = 'Fail';
     }
+    }else{
+
+        $response->resultado = 'FAILNICK';
+        $response->mensaje = 'Fail';
+}
     header('Content-Type: application/json');
+    echo json_encode($response); // MUESTRA EL JSON GENERADO
+
 ?>
+

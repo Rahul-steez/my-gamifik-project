@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from "../userservice/Service's/api.service";
+import { User } from '../userservice/Models/alumnos';
+import { Observable } from 'rxjs';
+import { ModificarinfoComponent } from '../modificarinfo/modificarinfo.component';
+import { LoginComponent } from '../login/login.component';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -6,10 +12,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  User: User;
 
-  constructor() { }
+  constructor(public ApiService: ApiService,private router: Router) { }
 
   ngOnInit(): void {
+    this.User = (JSON.parse((localStorage.getItem('currentUser'))));
+    console.log(this.User);  
   }
 
+  logout() {
+    this.ApiService.logout();
+    this.router.navigate(['/login']);
+  }
 }

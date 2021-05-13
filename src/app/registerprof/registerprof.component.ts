@@ -2,9 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, FormControl, Validators } from "@angular/forms";
 import { MustMatch } from "../MustMatch";
 import { LoginComponent } from '../login/login.component';
-import { ApiService } from "../userservice/api.service";
+import { ApiService } from "../userservice/Service's/api.service";
 import { Router } from "@angular/router";
 import { RegisterComponent } from '../register/register.component';
+import Swal from 'sweetalert2';
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
 
 @Component({
   selector: 'app-registerprof',
@@ -41,8 +54,25 @@ export class RegisterprofComponent implements OnInit {
       return;
     }else{
       this.ApiService.Registerprof(this.registerForm.value).subscribe (
-        datos => {
-            this.router.navigate(['/login']);
+        datos => { 
+          if(datos['resultado'] == 'OKREG') {
+            Toast.fire({
+              icon: 'success',
+              title: 'Register Profesor Existoso'
+            })
+            this.router.navigate(['/loginprof']);
+
+            }if(datos['resultado'] == 'FAIL') {
+              Toast.fire({
+                icon: 'error',
+                title: 'Register Profesor Error'
+              })
+            }if(datos['resultado'] == 'FAILNICK') {
+              Toast.fire({
+                icon: 'error',
+                title: 'Nick ya existe'
+              })
+            }
         }
       );
     }

@@ -1,0 +1,66 @@
+<nav class="navbar navbar-dark bg-dark">
+    <form class="container-fluid justify-content-start">
+      <a class="navbar-brand" href="#">GAMIFI-K</a>
+      <button   class="btn btn-outline-success me-2" type="button">Log Out</button>
+      <a class="navbar-brand"></a>
+      <button  (click)="GuardarPuntos()" class="btn btn-outline-success me-2" type="button">Guardar</button>
+    </form>
+  </nav>
+<div class="container">
+    <header>
+<h1>Ranking</h1>
+<select name="puntos">
+    <option>Bonus 1</option>
+    <option>Bonus 2</option>
+    <option>Bonus 3</option>
+    <option>Bonus 4</option>
+    <option>Bonus 5</option>
+    <option>Bonus 6</option>
+    <option>Bonus 7</option>
+    <option>Bonus 8</option>
+    <option>Bonus 9</option>
+    <option>Bonus 10</option>
+    <option>Bonus 11</option>
+    <option>Bonus 12</option>
+    <option>Bonus 13</option>
+    <option>Bonus 14</option>
+    <option>Bonus 15</option>
+    <option>Bonus 16</option>
+    <option>Bonus 17</option>
+    <option>Bonus 18</option>
+    <option>Bonus 19</option>
+    <option>Bonus 20</option>
+    </select>
+    </header>
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Puntos</th>
+                    <th>Puntos +/-</th>
+                </tr>
+            </thead>
+            <tbody>
+      <tr *ngFor = "let rk of Rank">
+        <td>{{ rk.Nombre }} {{ rk.Apellidos }}</td>
+        <td>{{ rk.Puntos }}</td>
+        <td><select name="puntos">
+
+            <option>100</option>
+            <option>200</option>
+            <option>300</option>
+            <option>400</option>
+            <option>500</option>
+            <option>600</option>
+            <option>700</option>
+            <option>800</option>
+            <option>900</option>
+            <option>1000</option>
+            </select>
+        </td>
+      </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

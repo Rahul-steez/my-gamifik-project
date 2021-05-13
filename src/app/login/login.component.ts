@@ -1,10 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from "../userservice/api.service";
+import { Component, OnInit, Injectable  } from '@angular/core';
+import { ApiService } from "../userservice/Service's/api.service";
 import { FormsModule } from "@angular/forms";
 import { RegisterComponent } from '../register/register.component';
 import { Router } from "@angular/router";
 import { HomeComponent } from '../home/home.component';
 import { HomeprofComponent } from '../homeprof/homeprof.component';
+import { ModificarinfoComponent } from '../modificarinfo/modificarinfo.component';
+import { ModificarinfoprofeComponent } from '../modificarinfoprofe/modificarinfoprofe.component';
+import { LoginprofComponent } from '../loginprof/loginprof.component';
+import Swal from 'sweetalert2';
+import { catchError, mapTo, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'top-end',
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener('mouseenter', Swal.stopTimer)
+    toast.addEventListener('mouseleave', Swal.resumeTimer)
+  }
+})
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +32,7 @@ import { HomeprofComponent } from '../homeprof/homeprof.component';
 })
 export class LoginComponent {
   title = 'my-gamifik-project';
+  token;
   login = {
     Nick: null,
     Pass: null
@@ -20,20 +41,29 @@ export class LoginComponent {
   constructor(private ApiService: ApiService, private router: Router) { }
 
   loginUsuario() {
-    this.ApiService.Login(this.login).subscribe (
+    this.ApiService.Login(this.login).subscribe(
       datos => {
-        if(datos['resultado'] == 'OK') {
-          console.log(datos);
-          alert(datos['mensaje']);
+        if(datos['resultado'] == 'OKALUMNO') {
+          console.log(datos['alumno']);
+          Toast.fire({
+            icon: 'success',
+            title: 'Login Alumno Existoso'
+          })
+          this.ApiService.InfoAlumno(JSON.parse(datos['alumno']));
           this.router.navigate(['/home']);
-
-        }if(datos['resultado'] == 'OKEY') {
+          
+        }if(datos['resultado'] == 'FAILCONTRASEÑA'){
           console.log(datos);
-          alert(datos['mensaje']);
-          this.router.navigate(['/homeprof']);
-
-        }else {
-          alert(datos['mensaje']);
+          Toast.fire({
+            icon: 'warning',
+            title: 'Contraseña Incorrecta'
+          })
+          
+        }if(datos['resultado'] == 'NOUSUARIO'){
+          Toast.fire({
+            icon: 'error',
+            title: 'Usuario Inexistente'
+          })
         }
       }
     );

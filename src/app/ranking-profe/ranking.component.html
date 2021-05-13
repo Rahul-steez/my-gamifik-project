@@ -1,0 +1,86 @@
+<nav class="navbar navbar-dark bg-dark">
+    <form class="container-fluid justify-content-start">
+      <a class="navbar-brand">GAMIFI-K</a>
+      <button  (click)="logout()" class="btn btn-outline-success me-2" type="button">Log Out</button>
+      <a class="navbar-brand"></a>
+      <button  (click)="MostrarRanking()" class="btn btn-outline-success me-2" type="button">Mostrar Rankings</button>
+      <a class="navbar-brand"></a>
+      <button  (click)="MostrarForm()" class="btn btn-outline-success me-2" type="button">Mostrar Rankings</button>
+    </form>
+  </nav>
+
+<h2 *ngIf="displayForm">
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+              <div class="form-group">
+                <h1>Codigo de Ranking:</h1>
+                  <label>{{ this.codigo }}</label>
+              </div>
+              
+                <form [formGroup]="registerForm" (ngSubmit)="crearRanking()">
+
+                    <div class="form-group">
+                      <label>Introducir Codigo de el Ranking</label>
+                      <input type="text" formControlName="Codigo" maxlength="25" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Codigo.errors }" />
+                      <div *ngIf="submitted && f.Codigo.errors" class="invalid-feedback">
+                          <div *ngIf="f.Codigo.errors.required">Falta Codigo</div>
+                          <div *ngIf="f.Codigo.errors.minLength">El minimo son 8 Caracteres</div>
+                      </div>
+                    </div>
+
+					          <div class="form-group">
+                        <label>Nombre de Ranking</label>
+                        <input type="text" formControlName="Nombre" maxlength="25" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Nombre.errors }" />
+                        <div *ngIf="submitted && f.Nombre.errors" class="invalid-feedback">
+                            <div *ngIf="f.Nombre.errors.required">Falta Nombre</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary">Crear Ranking</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</h2>
+
+
+
+
+<h2 *ngIf="displayTable">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Código</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let rank of Ranking">
+            <td>{{ rank.Id_Ranking }}</td>
+            <td>{{ rank.Nombre }}</td>
+            <td>{{ rank.Codigo }}</td>
+            <td>
+                <a (click)="editarRanking(rank.Id_Ranking)" class="btn btn-warning">Editar <i class="fa fa-edit"></i></a>
+            </td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="id"/>
+                    <button (click)="elminarRanking(rank.Id_Ranking)" type="submit" class="btn btn-danger">Eliminar <i class="fa fa-trash"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</h2>

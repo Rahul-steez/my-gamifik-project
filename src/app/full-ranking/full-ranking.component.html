@@ -1,0 +1,24 @@
+<div class="container">
+    <header>
+<h1>Ranking</h1>
+    </header>
+    <div class="wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nick</th>
+                    <th>Nombre</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+      <tr *ngFor = "let rk of Rank">
+        <td>{{ rk.Nick }}</td>
+        <td>{{ rk.Nombre }} {{ rk.Apellidos }}</td>
+        <td>{{ rk.Puntos }}</td>
+      </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

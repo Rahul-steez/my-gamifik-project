@@ -1,9 +1,15 @@
-
+<nav class="navbar navbar-dark bg-dark">
+	<form class="container-fluid justify-content-start">
+	  <button  routerLink="/loginprof" routerLinkActive="active" class="btn btn-outline-success me-2" type="button">Login Profesor</button>
+	  <a class="navbar-brand" href="#">GAMIFI-K</a>
+	  <button  routerLink="/register" routerLinkActive="active" class="btn btn-outline-success me-2" type="button">Register</button>
+	</form>
+  </nav>
   <body>
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1>Login</h1>
+				<h1>Login Alumno</h1>
 			</div>
 
 			<div class="login-form">
@@ -18,7 +24,6 @@
 				</div>
 
 				<a class="btn btn-primary btn-large btn-block" (click)="loginUsuario()">login</a>
-				<a routerLink="/register" routerLinkActive="active">Register</a>
 			</div>
 		</div>
 	</div>
