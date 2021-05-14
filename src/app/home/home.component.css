@@ -1,9 +1,7 @@
-body{
-    margin-top:20px;
-    color: #b3b8c2;
-    text-align: left;
-    background-color: #146cdf;    
+.fondo{
+  background-image: url(src/assets/fondos/fondo2.jpg);
 }
+
 .main-body {
     padding: 15px;
 }

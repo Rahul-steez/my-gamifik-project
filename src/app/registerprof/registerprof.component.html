@@ -5,7 +5,7 @@
       <button routerLink="/register" routerLinkActive="active" class="btn btn-sm btn-outline-secondary" type="button">Register Alumno</button>
     </form>
   </nav>
-<div class="jumbotron">
+<div class="jumbotron fondo">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -35,7 +35,7 @@
                             <div *ngIf="f.Pass.errors.required">Falta Contraseña</div>
                         </div>
                     </div>
-                  
+
                     <div class="form-group">
                         <label>Confirm Password</label>
                         <input type="password" formControlName="Passconf" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Passconf.errors }" />

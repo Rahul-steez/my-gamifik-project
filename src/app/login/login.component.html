@@ -20,7 +20,11 @@
 
 				<div class="control-group">
 				<input type="password" class="login-field" value="" placeholder="password" id="login-pass" [(ngModel)]="login.Pass">
-				<label class="login-field-icon fui-lock" for="login-pass"></label>
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+        <button class="btn btn-primary" type="button" onclick="mostrarContrasena()">Mostrar Contraseña</button>
+
+          <div>
+          </div>
 				</div>
 
 				<a class="btn btn-primary btn-large btn-block" (click)="loginUsuario()">login</a>

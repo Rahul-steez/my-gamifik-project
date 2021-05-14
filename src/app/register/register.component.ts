@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
     Pass: null
   }
 
-  
+
   constructor(private ApiService: ApiService,private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
@@ -56,15 +56,15 @@ export class RegisterComponent implements OnInit {
 
   get f() {return this.registerForm.controls; }
 
-  register() { 
+  register() {
     this.submitted = true;
     console.log(this.registerForm.value);
     if (this.registerForm.invalid) {
       return;
     }else{
       this.ApiService.Register(this.registerForm.value).subscribe (
-        datos => { 
-          
+        datos => {
+
           if(datos['resultado'] == 'OKREG') {
           Toast.fire({
             icon: 'success',
